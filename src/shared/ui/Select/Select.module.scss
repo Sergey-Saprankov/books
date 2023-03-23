@@ -1,0 +1,44 @@
+.Select {
+  max-width: max-content;
+  outline: none;
+}
+
+.selected {
+  width: 180px;
+  padding: 3px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #121212;
+  border-radius: 4px;
+
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.options {
+  border: 1px solid #121212;
+  border-radius: 4px;
+}
+
+.option {
+  width: 180px;
+  padding: 3px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  cursor: pointer;
+
+  &:hover {
+    background: #d6d8da;
+  }
+}
+
+.hover {
+  background: #d6d8da;
+}

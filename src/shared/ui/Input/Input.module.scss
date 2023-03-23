@@ -1,0 +1,12 @@
+.Input {
+  min-width: 300px;
+  max-width: 450px;
+  padding: 0 10px;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+
+  color: var(--color-input);
+  background: var(--bg-input-primary);
+  border: 1px solid var(--bg-primary);
+}

@@ -1,0 +1,25 @@
+.Text {
+  color: inherit;
+}
+
+.title {
+  font: var(--font-xl);
+  color: inherit;
+}
+
+.text {
+  font: var(--font-m);
+  color: inherit;
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.secondary {
+  color: var(--color-secondary);
+}
+
+.error {
+  color: var(--color-error);
+}
