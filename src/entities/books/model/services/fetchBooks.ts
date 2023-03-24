@@ -10,7 +10,7 @@ export const fetchBooks = createAsyncThunk(
     try {
       const res = await instance.get(`books/v1/volumes`, { params })
 
-      return res.data.items
+      return res.data
     } catch (e) {
       return thunkAPI.rejectWithValue('error')
     }

@@ -37,8 +37,9 @@ const booksSlice = createSlice({
         state.error = null
         state.isLoading = true
       })
-      .addCase(fetchBooks.fulfilled, (state, action: PayloadAction<Book[]>) => {
-        state.items = action.payload
+      .addCase(fetchBooks.fulfilled, (state, action: PayloadAction<BooksSchema>) => {
+        state.items = action.payload.items
+        state.totalItems = action.payload.totalItems
         state.isLoading = false
         state.error = null
       })

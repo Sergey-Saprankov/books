@@ -6,10 +6,12 @@ import s from './Books.module.scss'
 
 import { getBooks } from 'entities/books/model/selectors/getBooks/getBooks'
 import { getParams } from 'entities/books/model/selectors/getParams/getParams'
+import { getTotalBooks } from 'entities/books/model/selectors/getTotalBooks/getTotalBooks'
 import { fetchBooks } from 'entities/books/model/services/fetchBooks'
 import { Book } from 'entities/books/ui/Book/Book'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 interface BooksProps {
   className?: string
@@ -19,6 +21,8 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
   const dispatch = useAppDispatch()
   const params = useSelector(getParams)
   const books = useSelector(getBooks)
+  const total = useSelector(getTotalBooks)
+  const booksCount = `Found ${String(total)} result`
 
   useEffect(() => {
     dispatch(fetchBooks({ ...params }))
@@ -26,6 +30,7 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
 
   return (
     <div className={classNames(s.Books, {}, [className])}>
+      <Text className={s.center} theme={TextTheme.Primary} title={booksCount} />
       <ul className={s.booksList}>
         {books.map(el => {
           const src = el.volumeInfo.imageLinks?.thumbnail || ''
