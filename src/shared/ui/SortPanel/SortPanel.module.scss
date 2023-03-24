@@ -1,4 +1,8 @@
 .SortPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .searchBlock {
@@ -8,5 +12,19 @@
 }
 
 .inputWidth {
-  width: 450px;
+  width: 370px;
+}
+
+.selectBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.position {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  z-index: 10;
 }

@@ -1,29 +1,26 @@
 import './styles/index.scss'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme'
+import { getBooks, getIsLoading, getParams } from 'entities/books'
+import { fetchBooks } from 'entities/books/model/services/fetchBooks'
 import { MainPage } from 'pages/MainPage'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { API_KEY } from 'shared/lib/const/apiKey'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Loader } from 'shared/ui/Loader/Loader'
 import { Header } from 'widgets/Header/ui/Header'
-
-const API_KEY = 'AIzaSyB00SQJPE95pngbOFXzGI5Qh2-Pg8io8Uo'
 
 function App() {
   const { theme } = useTheme()
-  // useEffect(() => {
-  //   axios
-  //     .get('https://www.googleapis.com/books/v1/volumes?q=all', {
-  //       params: {
-  //         key: API_KEY,
-  //         startIndex: 0,
-  //         maxResults: 40,
-  //       },
-  //     })
-  //     .then(response => console.log(response.data.items))
-  //     .catch(error => console.log(error))
-  // }, [])
+  const dispatch = useAppDispatch()
+  const params = useSelector(getParams)
+
+  useEffect(() => {
+    dispatch(fetchBooks({ ...params }))
+  }, [])
 
   return (
     <div className={classNames('App', {}, [theme])}>

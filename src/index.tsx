@@ -5,16 +5,17 @@ import { createRoot } from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 
 import App from 'app/App'
+import { StoreProvider } from 'app/providers/StoreProvider'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
-  <React.StrictMode>
+  <StoreProvider>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </React.StrictMode>
+  </StoreProvider>
 )
 
 // If you want to start measuring performance in your app, pass a function
