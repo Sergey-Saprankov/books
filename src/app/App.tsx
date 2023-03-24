@@ -15,12 +15,6 @@ import { Header } from 'widgets/Header/ui/Header'
 
 function App() {
   const { theme } = useTheme()
-  const dispatch = useAppDispatch()
-  const params = useSelector(getParams)
-
-  useEffect(() => {
-    dispatch(fetchBooks({ ...params }))
-  }, [])
 
   return (
     <div className={classNames('App', {}, [theme])}>
