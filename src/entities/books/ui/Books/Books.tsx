@@ -42,8 +42,6 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
     dispatch(fetchBooks({ q, orderBy, startIndex, maxResults, key }))
   }, [dispatch, q, orderBy, startIndex, maxResults, key])
 
-  // if (isLoading) return <Loader />
-
   return (
     <div className={classNames(s.Books, {}, [className])}>
       {isLoading && <Loader />}
@@ -54,13 +52,14 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
           const alt = el.volumeInfo.description || ''
           const author = el.volumeInfo.authors ? el.volumeInfo.authors.join(' ') : ''
           const category = el.volumeInfo.categories ? el.volumeInfo.categories[0] : ''
+          const title = el.volumeInfo.title
 
           return (
             <Book
               getBookId={getId}
               id={el.id}
               key={v1()}
-              title={el.volumeInfo.title}
+              title={title}
               src={src}
               alt={alt}
               author={author}
