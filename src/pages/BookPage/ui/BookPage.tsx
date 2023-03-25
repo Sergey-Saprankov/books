@@ -42,9 +42,11 @@ const BookPage = () => {
               <Text title={title} theme={TextTheme.Primary} />
               <Text className={s.underline} text={author} theme={TextTheme.Primary} />
             </div>
-            <div className={s.description}>
-              <Text text={alt} theme={TextTheme.Primary} />
-            </div>
+            {alt && (
+              <div className={s.description}>
+                <Text text={alt} theme={TextTheme.Primary} />
+              </div>
+            )}
           </div>
         </div>
       </div>
