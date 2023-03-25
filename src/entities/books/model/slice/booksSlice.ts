@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { Book, BooksSchema } from '../types/BooksSchema'
+import { BooksSchema } from '../types/BooksSchema'
 
 import { fetchBooks } from 'entities/books/model/services/fetchBooks'
 import { API_KEY } from 'shared/lib/const/apiKey'
@@ -12,6 +12,7 @@ const initialState: BooksSchema = {
   isLoading: false,
   error: null,
   currentBookId: '',
+  paginationMarker: false,
   params: {
     key: API_KEY,
     maxResults: 30,
@@ -31,8 +32,14 @@ const booksSlice = createSlice({
     setSort: (state, action: PayloadAction<string>) => {
       state.params.orderBy = action.payload
     },
+    setPage: state => {
+      state.params.startIndex += 1
+    },
     getBookId: (state, action: PayloadAction<string>) => {
       state.currentBookId = action.payload
+    },
+    setMarker: (state, action: PayloadAction<boolean>) => {
+      state.paginationMarker = action.payload
     },
   },
   extraReducers: builder => {
@@ -42,17 +49,26 @@ const booksSlice = createSlice({
         state.isLoading = true
       })
       .addCase(fetchBooks.fulfilled, (state, action: PayloadAction<BooksSchema>) => {
-        state.items = action.payload.items
+        if (state.paginationMarker) {
+          state.items = [...state.items, ...action.payload.items]
+        } else {
+          state.items = action.payload.items
+          state.params.startIndex = 0
+        }
+
+        state.paginationMarker = false
+
         state.totalItems = action.payload.totalItems
         state.isLoading = false
         state.error = null
       })
       .addCase(fetchBooks.rejected, (state, action) => {
         state.isLoading = false
+        state.paginationMarker = false
         state.error = action.error.message ?? 'Failed to fetch books'
       })
   },
 })
 
 export const { reducer: booksReducer } = booksSlice
-export const { setFilter, setSort, getBookId } = booksSlice.actions
+export const { setFilter, setSort, getBookId, setPage, setMarker } = booksSlice.actions

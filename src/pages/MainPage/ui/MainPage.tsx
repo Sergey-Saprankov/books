@@ -1,11 +1,12 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
 import s from './MainPage.module.scss'
 
-import { fetchBooks, Books, getIsLoading, getParams } from 'entities/books'
+import { Books, fetchBooks, getIsLoading, getParams, setMarker, setPage } from 'entities/books'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Loader } from 'shared/ui/Loader/Loader'
 
 const MainPage = () => {
@@ -13,6 +14,11 @@ const MainPage = () => {
   const params = useSelector(getParams)
   const { key, maxResults, orderBy, q, startIndex } = params
   const isLoading = useSelector(getIsLoading)
+
+  const onChangePagination = useCallback(() => {
+    dispatch(setMarker(true))
+    dispatch(setPage())
+  }, [dispatch])
 
   useEffect(() => {
     dispatch(fetchBooks({ q, orderBy, startIndex, maxResults, key }))
@@ -23,6 +29,9 @@ const MainPage = () => {
   return (
     <section className={s.MainPage}>
       <Books />
+      <Button onClick={onChangePagination} theme={ButtonTheme.Primary}>
+        Show more
+      </Button>
     </section>
   )
 }

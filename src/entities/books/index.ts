@@ -1,4 +1,3 @@
-export { booksReducer } from './model/slice/booksSlice'
 export { fetchBooks } from './model/services/fetchBooks'
 export { getBooks } from './model/selectors/getBooks/getBooks'
 export { getIsLoading } from './model/selectors/getIsLoading/getIsLoading'
@@ -11,6 +10,13 @@ export { getSort } from './model/selectors/getParams/getParams'
 export { getKey } from './model/selectors/getParams/getParams'
 export { getMaxResults } from './model/selectors/getParams/getParams'
 export { Books } from './ui/Books/Books'
-export { setFilter, setSort } from './model/slice/booksSlice'
-export { getBookId } from './model/slice/booksSlice'
+export {
+  setFilter,
+  setSort,
+  setMarker,
+  getBookId,
+  setPage,
+  booksReducer,
+} from './model/slice/booksSlice'
+
 export { getBookIdSelector } from './model/selectors/getBookId/getBookId'

@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { BookPage } from 'pages/BookPage'
 import { MainPage } from 'pages/MainPage'
@@ -12,7 +12,6 @@ export const AppRouter = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        {/* <Route path={PATH.MAIN} element={<MainPage />} /> */}
         <Route path={PATH.BOOK} element={<BookPage />} />
       </Routes>
     </Suspense>
