@@ -8,7 +8,7 @@ import { fetchBooks, Books, getIsLoading, getParams } from 'entities/books'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Loader } from 'shared/ui/Loader/Loader'
 
-export const MainPage = () => {
+const MainPage = () => {
   const dispatch = useAppDispatch()
   const params = useSelector(getParams)
   const { key, maxResults, orderBy, q, startIndex } = params
@@ -26,3 +26,5 @@ export const MainPage = () => {
     </section>
   )
 }
+
+export default MainPage

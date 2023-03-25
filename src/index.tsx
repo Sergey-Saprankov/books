@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
 import reportWebVitals from './reportWebVitals'
 
@@ -12,9 +13,11 @@ const root = createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <StoreProvider>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </StoreProvider>
 )
 

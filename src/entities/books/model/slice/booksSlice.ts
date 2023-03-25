@@ -11,6 +11,7 @@ const initialState: BooksSchema = {
   items: [],
   isLoading: false,
   error: null,
+  currentBookId: '',
   params: {
     key: API_KEY,
     maxResults: 30,
@@ -29,6 +30,9 @@ const booksSlice = createSlice({
     },
     setSort: (state, action: PayloadAction<string>) => {
       state.params.orderBy = action.payload
+    },
+    getBookId: (state, action: PayloadAction<string>) => {
+      state.currentBookId = action.payload
     },
   },
   extraReducers: builder => {
@@ -51,4 +55,4 @@ const booksSlice = createSlice({
 })
 
 export const { reducer: booksReducer } = booksSlice
-export const { setFilter, setSort } = booksSlice.actions
+export const { setFilter, setSort, getBookId } = booksSlice.actions

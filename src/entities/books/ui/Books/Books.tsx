@@ -1,15 +1,16 @@
-import React, { FC, memo, useEffect } from 'react'
+import React, { FC, memo, useCallback } from 'react'
 
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import s from './Books.module.scss'
 
+import { getBookId } from 'entities/books'
 import { getBooks } from 'entities/books/model/selectors/getBooks/getBooks'
-import { getParams } from 'entities/books/model/selectors/getParams/getParams'
 import { getTotalBooks } from 'entities/books/model/selectors/getTotalBooks/getTotalBooks'
-import { fetchBooks } from 'entities/books/model/services/fetchBooks'
 import { Book } from 'entities/books/ui/Book/Book'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { PATH } from 'shared/lib/const/path'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 
@@ -18,9 +19,19 @@ interface BooksProps {
 }
 
 export const Books: FC<BooksProps> = memo(({ className = '' }) => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const books = useSelector(getBooks)
   const total = useSelector(getTotalBooks)
   const booksCount = `Found ${String(total)} result`
+
+  const getId = useCallback(
+    (id: string) => {
+      dispatch(getBookId(id))
+      navigate(PATH.BOOK)
+    },
+    [dispatch]
+  )
 
   return (
     <div className={classNames(s.Books, {}, [className])}>
@@ -34,6 +45,8 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
 
           return (
             <Book
+              getBookId={getId}
+              id={el.id}
               key={el.id}
               title={el.volumeInfo.title}
               src={src}

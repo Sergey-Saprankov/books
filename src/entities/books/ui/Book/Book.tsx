@@ -14,19 +14,23 @@ interface BookProps {
   category: string
   author: string
   title: string
+  id: string
+  getBookId: (id: string) => void
 }
 
-export const Book: FC<BookProps> = memo(({ className = '', alt, category, src, author, title }) => {
-  return (
-    <div className={classNames(s.Book, {}, [className])}>
-      <div className={s.innerWrapper}>
-        <Image className={s.alignSelf} src={src} alt={alt} width={'90px'} height={'120px'} />
-        <div className={s.textBlock}>
-          <Text theme={TextTheme.Primary} text={textHandler(category)} />
-          <Text title={textHandler(title)} />
+export const Book: FC<BookProps> = memo(
+  ({ className = '', alt, category, src, author, title, id, getBookId }) => {
+    return (
+      <div onClick={() => getBookId(id)} className={classNames(s.Book, {}, [className])}>
+        <div className={s.innerWrapper}>
+          <Image className={s.alignSelf} src={src} alt={alt} width={'90px'} height={'120px'} />
+          <div className={s.textBlock}>
+            <Text theme={TextTheme.Primary} text={textHandler(category)} />
+            <Text title={textHandler(title)} />
+          </div>
+          <Text text={textHandler(author)} />
         </div>
-        <Text text={textHandler(author)} />
       </div>
-    </div>
-  )
-})
+    )
+  }
+)
