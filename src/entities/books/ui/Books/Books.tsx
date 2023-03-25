@@ -18,21 +18,15 @@ interface BooksProps {
 }
 
 export const Books: FC<BooksProps> = memo(({ className = '' }) => {
-  const dispatch = useAppDispatch()
-  const params = useSelector(getParams)
   const books = useSelector(getBooks)
   const total = useSelector(getTotalBooks)
   const booksCount = `Found ${String(total)} result`
-
-  useEffect(() => {
-    dispatch(fetchBooks({ ...params }))
-  }, [dispatch, params])
 
   return (
     <div className={classNames(s.Books, {}, [className])}>
       <Text className={s.center} theme={TextTheme.Primary} title={booksCount} />
       <ul className={s.booksList}>
-        {books.map(el => {
+        {books?.map(el => {
           const src = el.volumeInfo.imageLinks?.thumbnail || ''
           const alt = el.volumeInfo.description || ''
           const author = el.volumeInfo.authors ? el.volumeInfo.authors.join(' ') : ''
