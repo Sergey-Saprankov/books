@@ -11,11 +11,12 @@ import { Loader } from 'shared/ui/Loader/Loader'
 export const MainPage = () => {
   const dispatch = useAppDispatch()
   const params = useSelector(getParams)
+  const { key, maxResults, orderBy, q, startIndex } = params
   const isLoading = useSelector(getIsLoading)
 
   useEffect(() => {
-    dispatch(fetchBooks({ ...params }))
-  }, [dispatch, params])
+    dispatch(fetchBooks({ q, orderBy, startIndex, maxResults, key }))
+  }, [dispatch, q, orderBy, startIndex, maxResults, key])
 
   if (isLoading) return <Loader />
 
