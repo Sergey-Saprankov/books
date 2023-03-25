@@ -1,17 +1,19 @@
-import React, { FC, memo, useCallback } from 'react'
+import React, { FC, memo, useCallback, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { v1 } from 'uuid'
 
 import s from './Books.module.scss'
 
-import { getBookId } from 'entities/books'
+import { fetchBooks, getBookId, getIsLoading, getParams } from 'entities/books'
 import { getBooks } from 'entities/books/model/selectors/getBooks/getBooks'
 import { getTotalBooks } from 'entities/books/model/selectors/getTotalBooks/getTotalBooks'
 import { Book } from 'entities/books/ui/Book/Book'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { PATH } from 'shared/lib/const/path'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Loader } from 'shared/ui/Loader/Loader'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 interface BooksProps {
@@ -24,6 +26,9 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
   const books = useSelector(getBooks)
   const total = useSelector(getTotalBooks)
   const booksCount = `Found ${String(total)} result`
+  const params = useSelector(getParams)
+  const { key, maxResults, orderBy, q, startIndex } = params
+  const isLoading = useSelector(getIsLoading)
 
   const getId = useCallback(
     (id: string) => {
@@ -32,6 +37,12 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
     },
     [dispatch]
   )
+
+  useEffect(() => {
+    dispatch(fetchBooks({ q, orderBy, startIndex, maxResults, key }))
+  }, [dispatch, q, orderBy, startIndex, maxResults, key])
+
+  // if (isLoading) return <Loader />
 
   return (
     <div className={classNames(s.Books, {}, [className])}>
@@ -47,7 +58,7 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
             <Book
               getBookId={getId}
               id={el.id}
-              key={el.id}
+              key={v1()}
               title={el.volumeInfo.title}
               src={src}
               alt={alt}

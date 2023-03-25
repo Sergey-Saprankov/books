@@ -67,7 +67,7 @@ export interface Book {
 
 export interface BooksSchema {
   kind?: string
-  totalItems?: number
+  totalItems: number
   items: Book[]
   isLoading: boolean
   error: string | null
