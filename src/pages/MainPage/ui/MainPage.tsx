@@ -1,10 +1,10 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 
 import { useSelector } from 'react-redux'
 
 import s from './MainPage.module.scss'
 
-import { Books, getBookId, getBooks, getTotalBooks, setMarker, setPage } from 'entities/books'
+import { Books, getBooks, getTotalBooks, setMarker, setPage } from 'entities/books'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 

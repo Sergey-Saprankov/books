@@ -46,6 +46,7 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
 
   return (
     <div className={classNames(s.Books, {}, [className])}>
+      {isLoading && <Loader />}
       <Text className={s.center} theme={TextTheme.Primary} title={booksCount} />
       <ul className={s.booksList}>
         {books?.map(el => {
