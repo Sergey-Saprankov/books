@@ -21,8 +21,6 @@ const BookPage = () => {
   const category = volumeInfo.categories ? volumeInfo.categories.join(' ') : ''
   const title = volumeInfo.title
 
-  console.log(book)
-
   return (
     <section className={s.BookPage}>
       <Button onClick={() => navigate(-1)} className={s.btn} theme={ButtonTheme.Clear}>
