@@ -52,7 +52,7 @@ const BookPage = () => {
       <div className={s.innerWrapper}>
         <div className={s.block}>
           <div className={s.coverBlock}>
-            {<Image src={src} alt={alt} width={'350px'} height={'auto'} />}
+            {<Image src={src} alt={alt} width={'280px'} height={'auto'} />}
           </div>
         </div>
         <div className={s.block}>

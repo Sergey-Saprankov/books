@@ -7,12 +7,15 @@
 .innerWrapper {
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .block {
   height: 100%;
   //padding: 30px;
   width: 50%;
+  min-width: 300px;
+  flex-grow: 1;
 }
 
 .coverBlock {
