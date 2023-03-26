@@ -5,7 +5,7 @@ interface IndustryIdentifier {
   identifier: string
 }
 
-interface SaleInfo {
+export interface SaleInfo {
   country: string
   saleability: string
   isEbook: boolean
@@ -23,7 +23,7 @@ interface SearchInfo {
   textSnippet: string
 }
 
-interface AccessInfo {
+export interface AccessInfo {
   country: string
   viewability: string
   embeddable: boolean
@@ -36,8 +36,8 @@ interface AccessInfo {
   quoteSharingAllowed: boolean
 }
 
-interface VolumeInfo {
-  title: string
+export interface VolumeInfo {
+  title?: string
   authors?: string[]
   publisher?: string
   publishedDate?: string
@@ -52,9 +52,9 @@ interface VolumeInfo {
     thumbnail?: string
   }
   language?: string
-  previewLink: string
-  infoLink: string
-  canonicalVolumeLink: string
+  previewLink?: string
+  infoLink?: string
+  canonicalVolumeLink?: string
 }
 
 export interface Book {

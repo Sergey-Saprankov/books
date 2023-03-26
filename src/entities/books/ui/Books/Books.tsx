@@ -33,7 +33,7 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
   const getId = useCallback(
     (id: string) => {
       dispatch(getBookId(id))
-      navigate(PATH.BOOK)
+      navigate(`${PATH.BOOK}/${id}`)
     },
     [dispatch]
   )
@@ -52,7 +52,7 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
           const alt = el.volumeInfo.description || ''
           const author = el.volumeInfo.authors ? el.volumeInfo.authors.join(' ') : ''
           const category = el.volumeInfo.categories ? el.volumeInfo.categories[0] : ''
-          const title = el.volumeInfo.title
+          const title = el.volumeInfo.title || ''
 
           return (
             <Book

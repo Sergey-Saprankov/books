@@ -1,28 +1,48 @@
+import { useEffect } from 'react'
+
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import { getBook } from '../model/selectors/getBook/getBook'
+import { getIsLoading } from '../model/selectors/getIsLoading/getIsLoading'
 
 import s from './BookPage.module.scss'
 
 import { getBookIdSelector, getBooks } from 'entities/books'
+import { getBookState } from 'pages/BookPage/model/selectors/getBookState/getBookState'
+import { fetchCurrentBook } from 'pages/BookPage/model/services/fetchCurrentBook'
 import { ReactComponent as Arrow } from 'shared/assets/icon/arrow-left.svg'
+import { API_KEY } from 'shared/lib/const/apiKey'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Image } from 'shared/ui/Image/Image'
+import { Loader } from 'shared/ui/Loader/Loader'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 const BookPage = () => {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const books = useSelector(getBooks)
-  const id = useSelector(getBookIdSelector)
-  const book = books.filter(b => b.id === id)
-  const [{ volumeInfo }] = book
+  const { id } = useParams<{ id: string }>()
+  const book = useSelector(getBook)
+  const isLoading = useSelector(getIsLoading)
+
+  useEffect(() => {
+    if (!id) return
+    dispatch(fetchCurrentBook({ id, key: API_KEY }))
+  }, [id])
+
+  const { volumeInfo } = book
   const src = volumeInfo.imageLinks?.thumbnail || ''
   const alt = volumeInfo.description || ''
   const author = volumeInfo.authors ? volumeInfo.authors.join(' ') : ''
   const category = volumeInfo.categories ? volumeInfo.categories.join(' ') : ''
-  const title = volumeInfo.title
+  const title = volumeInfo.title || ''
+
+  if (!id) return null
 
   return (
     <section className={s.BookPage}>
+      {isLoading && <Loader />}
       <Button onClick={() => navigate(-1)} className={s.btn} theme={ButtonTheme.Clear}>
         <Arrow />
         <span>Back to Main Page</span>

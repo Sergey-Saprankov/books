@@ -11,8 +11,8 @@ export const AppRouter = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path={PATH.BOOK} element={<BookPage />} />
+        <Route path={PATH.MAIN} element={<MainPage />} />
+        <Route path={PATH.CURRENT_BOOK} element={<BookPage />} />
       </Routes>
     </Suspense>
   )

@@ -1,4 +1,5 @@
 export enum PATH {
-  MAIN = 'main',
+  MAIN = '/',
   BOOK = 'book',
+  CURRENT_BOOK = 'book/:id',
 }

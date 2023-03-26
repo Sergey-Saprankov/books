@@ -1,1 +1,7 @@
 export { BookPageAsync as BookPage } from './ui/BookPage.async'
+export { bookReducer } from './model/slice/bookSlice'
+export type { BookSchema, Book, FetchParams } from './model/types/BookSchema'
+export { getBookState } from './model/selectors/getBookState/getBookState'
+export { getBook } from './model/selectors/getBook/getBook'
+export { getIsLoading } from './model/selectors/getIsLoading/getIsLoading'
+export { getError } from './model/selectors/getError/getError'
