@@ -1,7 +1,9 @@
-import React, { FC, KeyboardEvent, memo, useState } from 'react'
+import React, { FC, memo, useState } from 'react'
 
 import s from './Select.module.scss'
 
+import { ReactComponent as ArrowDown } from 'shared/assets/icon/chevron-down.svg'
+import { ReactComponent as ArrowUp } from 'shared/assets/icon/chevron-up.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 interface SelectProps {
@@ -57,6 +59,9 @@ export const Select: FC<SelectProps> = memo(({ className = '', options, value, o
 
   return (
     <div className={classNames(s.Select, {}, [className])} onBlur={handleBlur} tabIndex={0}>
+      <div onClick={toggleSelect} className={s.iconContainer}>
+        {isOpen ? <ArrowUp /> : <ArrowDown />}
+      </div>
       <div className={s.selected} onClick={toggleSelect}>
         <span>{selectedOption}</span>
       </div>
