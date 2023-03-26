@@ -1,4 +1,12 @@
-import React, { ChangeEvent, KeyboardEvent, FC, InputHTMLAttributes, memo, ReactNode } from 'react'
+import React, {
+  ChangeEvent,
+  KeyboardEvent,
+  FC,
+  InputHTMLAttributes,
+  memo,
+  ReactNode,
+  useState,
+} from 'react'
 
 import s from './Input.module.scss'
 

@@ -14,7 +14,7 @@ export const ErrorPage = () => {
     <div className={s.ErrorPage}>
       <Text theme={TextTheme.Primary} title={'Something went wrong'} />
       <Button onClick={() => navigate(PATH.MAIN)} theme={ButtonTheme.Primary}>
-        Pack to main page
+        Back to main page
       </Button>
     </div>
   )
