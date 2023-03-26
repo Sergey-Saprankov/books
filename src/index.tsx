@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 
 import App from 'app/App'
+import { ErrorBoundary } from 'app/providers/ErrorProvider/ui/ErrorProvider'
 import { StoreProvider } from 'app/providers/StoreProvider'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 
@@ -14,9 +15,11 @@ const root = createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <StoreProvider>
     <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </ErrorBoundary>
     </BrowserRouter>
   </StoreProvider>
 )

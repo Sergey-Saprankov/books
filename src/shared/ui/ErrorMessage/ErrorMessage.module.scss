@@ -1,0 +1,21 @@
+.ErrorMessage {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: var(--color-error);
+  font: var(--font-l);
+  z-index: 5;
+}
+
+.hide {
+  display: none;
+}
+
+.innerWrapper {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}

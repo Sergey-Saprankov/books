@@ -1,20 +1,21 @@
 import { useEffect } from 'react'
 
+import { Simulate } from 'react-dom/test-utils'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { getBook } from '../model/selectors/getBook/getBook'
+import { getError } from '../model/selectors/getError/getError'
 import { getIsLoading } from '../model/selectors/getIsLoading/getIsLoading'
 
 import s from './BookPage.module.scss'
 
-import { getBookIdSelector, getBooks } from 'entities/books'
-import { getBookState } from 'pages/BookPage/model/selectors/getBookState/getBookState'
 import { fetchCurrentBook } from 'pages/BookPage/model/services/fetchCurrentBook'
 import { ReactComponent as Arrow } from 'shared/assets/icon/arrow-left.svg'
 import { API_KEY } from 'shared/lib/const/apiKey'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { ErrorMessage } from 'shared/ui/ErrorMessage/ErrorMessage'
 import { Image } from 'shared/ui/Image/Image'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
@@ -25,6 +26,7 @@ const BookPage = () => {
   const { id } = useParams<{ id: string }>()
   const book = useSelector(getBook)
   const isLoading = useSelector(getIsLoading)
+  const error = useSelector(getError)
 
   useEffect(() => {
     if (!id) return
@@ -68,6 +70,7 @@ const BookPage = () => {
           </div>
         </div>
       </div>
+      {error && <ErrorMessage error={error} />}
     </section>
   )
 }
