@@ -6,7 +6,7 @@ import { v1 } from 'uuid'
 
 import s from './Books.module.scss'
 
-import { fetchBooks, getBookId, getIsLoading, getParams } from 'entities/books'
+import { fetchBooks, getIsLoading, getParams } from 'entities/books'
 import { getBooks } from 'entities/books/model/selectors/getBooks/getBooks'
 import { getTotalBooks } from 'entities/books/model/selectors/getTotalBooks/getTotalBooks'
 import { Book } from 'entities/books/ui/Book/Book'
@@ -32,7 +32,6 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
 
   const getId = useCallback(
     (id: string) => {
-      dispatch(getBookId(id))
       navigate(`${PATH.BOOK}/${id}`)
     },
     [dispatch]

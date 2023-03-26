@@ -10,13 +10,4 @@ export { getSort } from './model/selectors/getParams/getParams'
 export { getKey } from './model/selectors/getParams/getParams'
 export { getMaxResults } from './model/selectors/getParams/getParams'
 export { Books } from './ui/Books/Books'
-export {
-  setFilter,
-  setSort,
-  setMarker,
-  getBookId,
-  setPage,
-  booksReducer,
-} from './model/slice/booksSlice'
-
-export { getBookIdSelector } from './model/selectors/getBookId/getBookId'
+export { setFilter, setSort, setMarker, setPage, booksReducer } from './model/slice/booksSlice'

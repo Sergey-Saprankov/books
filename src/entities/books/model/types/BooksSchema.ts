@@ -72,6 +72,5 @@ export interface BooksSchema {
   isLoading: boolean
   error: string | null
   params: FetchParams
-  currentBookId: string
   paginationMarker: boolean
 }

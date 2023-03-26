@@ -11,7 +11,6 @@ const initialState: BooksSchema = {
   items: [],
   isLoading: false,
   error: null,
-  currentBookId: '',
   paginationMarker: false,
   params: {
     key: API_KEY,
@@ -34,9 +33,6 @@ const booksSlice = createSlice({
     },
     setPage: state => {
       state.params.startIndex += 1
-    },
-    getBookId: (state, action: PayloadAction<string>) => {
-      state.currentBookId = action.payload
     },
     setMarker: (state, action: PayloadAction<boolean>) => {
       state.paginationMarker = action.payload
@@ -71,4 +67,4 @@ const booksSlice = createSlice({
 })
 
 export const { reducer: booksReducer } = booksSlice
-export const { setFilter, setSort, getBookId, setPage, setMarker } = booksSlice.actions
+export const { setFilter, setSort, setPage, setMarker } = booksSlice.actions
