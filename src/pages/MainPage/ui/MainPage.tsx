@@ -1,6 +1,4 @@
-import { throws } from 'assert'
-
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 
 import { useSelector } from 'react-redux'
 

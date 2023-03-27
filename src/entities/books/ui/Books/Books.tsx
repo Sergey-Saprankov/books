@@ -32,7 +32,7 @@ export const Books: FC<BooksProps> = memo(({ className = '' }) => {
 
   const getId = useCallback(
     (id: string) => {
-      navigate(`${PATH.BOOK}/${id}`)
+      return navigate(`${PATH.BOOK}/${id}`)
     },
     [dispatch]
   )
