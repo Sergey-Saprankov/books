@@ -37,11 +37,6 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
