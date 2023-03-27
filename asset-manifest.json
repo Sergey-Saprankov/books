@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/Sergey-Saprankov/books/static/css/main.181e98e5.css",
-    "main.js": "/Sergey-Saprankov/books/static/js/main.e358fe7a.js",
-    "static/css/834.5d26db11.chunk.css": "/Sergey-Saprankov/books/static/css/834.5d26db11.chunk.css",
-    "static/js/834.bb226365.chunk.js": "/Sergey-Saprankov/books/static/js/834.bb226365.chunk.js",
-    "static/css/52.c8b305a6.chunk.css": "/Sergey-Saprankov/books/static/css/52.c8b305a6.chunk.css",
-    "static/js/52.4b4be8ef.chunk.js": "/Sergey-Saprankov/books/static/js/52.4b4be8ef.chunk.js",
-    "static/js/787.f5db70bc.chunk.js": "/Sergey-Saprankov/books/static/js/787.f5db70bc.chunk.js",
-    "static/media/default.jpg": "/Sergey-Saprankov/books/static/media/default.069bfcbbb33b1097b67d.jpg",
-    "static/media/lightTheme.svg": "/Sergey-Saprankov/books/static/media/lightTheme.2b744dc318447572a42b16618f6ce584.svg",
-    "index.html": "/Sergey-Saprankov/books/index.html",
-    "static/media/darkTheme.svg": "/Sergey-Saprankov/books/static/media/darkTheme.e28562adb8a838026e0bfa3bda1fafa7.svg",
-    "static/media/search.svg": "/Sergey-Saprankov/books/static/media/search.433e5e3cf94303f6bf6f6f805c2b126e.svg",
-    "static/media/arrow-left.svg": "/Sergey-Saprankov/books/static/media/arrow-left.cc886459877289bb0f30b01ea8f1cc7c.svg",
-    "static/media/chevron-down.svg": "/Sergey-Saprankov/books/static/media/chevron-down.7863facd33a18ceb917433b7fa246d64.svg",
-    "static/media/chevron-up.svg": "/Sergey-Saprankov/books/static/media/chevron-up.4d47278837e63ba7083fa7b5cbab8326.svg",
-    "main.181e98e5.css.map": "/Sergey-Saprankov/books/static/css/main.181e98e5.css.map",
-    "main.e358fe7a.js.map": "/Sergey-Saprankov/books/static/js/main.e358fe7a.js.map",
-    "834.5d26db11.chunk.css.map": "/Sergey-Saprankov/books/static/css/834.5d26db11.chunk.css.map",
-    "834.bb226365.chunk.js.map": "/Sergey-Saprankov/books/static/js/834.bb226365.chunk.js.map",
-    "52.c8b305a6.chunk.css.map": "/Sergey-Saprankov/books/static/css/52.c8b305a6.chunk.css.map",
-    "52.4b4be8ef.chunk.js.map": "/Sergey-Saprankov/books/static/js/52.4b4be8ef.chunk.js.map",
-    "787.f5db70bc.chunk.js.map": "/Sergey-Saprankov/books/static/js/787.f5db70bc.chunk.js.map"
+    "main.css": "/books/static/css/main.181e98e5.css",
+    "main.js": "/books/static/js/main.9bbf89e3.js",
+    "static/css/834.5d26db11.chunk.css": "/books/static/css/834.5d26db11.chunk.css",
+    "static/js/834.bb226365.chunk.js": "/books/static/js/834.bb226365.chunk.js",
+    "static/css/52.c8b305a6.chunk.css": "/books/static/css/52.c8b305a6.chunk.css",
+    "static/js/52.4b4be8ef.chunk.js": "/books/static/js/52.4b4be8ef.chunk.js",
+    "static/js/787.f5db70bc.chunk.js": "/books/static/js/787.f5db70bc.chunk.js",
+    "static/media/default.jpg": "/books/static/media/default.069bfcbbb33b1097b67d.jpg",
+    "static/media/lightTheme.svg": "/books/static/media/lightTheme.2b744dc318447572a42b16618f6ce584.svg",
+    "static/media/darkTheme.svg": "/books/static/media/darkTheme.e28562adb8a838026e0bfa3bda1fafa7.svg",
+    "index.html": "/books/index.html",
+    "static/media/search.svg": "/books/static/media/search.433e5e3cf94303f6bf6f6f805c2b126e.svg",
+    "static/media/arrow-left.svg": "/books/static/media/arrow-left.cc886459877289bb0f30b01ea8f1cc7c.svg",
+    "static/media/chevron-down.svg": "/books/static/media/chevron-down.7863facd33a18ceb917433b7fa246d64.svg",
+    "static/media/chevron-up.svg": "/books/static/media/chevron-up.4d47278837e63ba7083fa7b5cbab8326.svg",
+    "main.181e98e5.css.map": "/books/static/css/main.181e98e5.css.map",
+    "main.9bbf89e3.js.map": "/books/static/js/main.9bbf89e3.js.map",
+    "834.5d26db11.chunk.css.map": "/books/static/css/834.5d26db11.chunk.css.map",
+    "834.bb226365.chunk.js.map": "/books/static/js/834.bb226365.chunk.js.map",
+    "52.c8b305a6.chunk.css.map": "/books/static/css/52.c8b305a6.chunk.css.map",
+    "52.4b4be8ef.chunk.js.map": "/books/static/js/52.4b4be8ef.chunk.js.map",
+    "787.f5db70bc.chunk.js.map": "/books/static/js/787.f5db70bc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.181e98e5.css",
-    "static/js/main.e358fe7a.js"
+    "static/js/main.9bbf89e3.js"
   ]
 }
