@@ -25,7 +25,7 @@ const MainPage = () => {
   return (
     <section className={s.MainPage}>
       <Books />
-      {total > books.length && (
+      {books && total > books.length && (
         <Button onClick={onChangePagination} theme={ButtonTheme.Primary}>
           Show more
         </Button>
